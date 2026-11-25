@@ -42,11 +42,20 @@ class TicTacToe:
 
         self.board[index] = self.current_player
         state = self.state()
+        
+        # Меняем игрока только если игра ещё не закончилась.
+        # Если игра завершилась этим ходом, current_player остаётся тем, кто только что сходил.
         if state is GameState.IN_PROGRESS:
             self.current_player = "O" if self.current_player == "X" else "X"
         return state
 
     def state(self):
+        """
+        Определяет текущее состояние игры.
+        
+        Возвращает:
+            GameState: IN_PROGRESS, X_WINS, O_WINS или DRAW.
+        """
         for a, b, c in WINNING_COMBINATIONS:
             if self.board[a] == self.board[b] == self.board[c] != "":
                 return GameState.X_WINS if self.board[a] == "X" else GameState.O_WINS
@@ -60,3 +69,5 @@ class TicTacToe:
             if self.board[a] == self.board[b] == self.board[c] != "":
                 return combo
         return None
+    
+    
