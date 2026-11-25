@@ -2,7 +2,7 @@
 
 Игра на Python + tkinter. Логика отделена от интерфейса, логика покрыта тестами.
 
-![screenshot](screenshot.jpg)
+![screenshot](screenshot.png)
 
 ## Структура
 
